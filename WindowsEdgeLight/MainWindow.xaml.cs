@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsEdgeLight;
 
@@ -48,7 +49,27 @@ public partial class MainWindow : Window
     private void SetupNotifyIcon()
     {
         notifyIcon = new NotifyIcon();
-        notifyIcon.Icon = new System.Drawing.Icon("ringlight_cropped.ico");
+        
+        // Load icon from embedded resource or file
+        try
+        {
+            var iconPath = Path.Combine(AppContext.BaseDirectory, "ringlight_cropped.ico");
+            if (File.Exists(iconPath))
+            {
+                notifyIcon.Icon = new System.Drawing.Icon(iconPath);
+            }
+            else
+            {
+                // Fallback to default icon
+                notifyIcon.Icon = System.Drawing.SystemIcons.Application;
+            }
+        }
+        catch
+        {
+            // Fallback to default icon if loading fails
+            notifyIcon.Icon = System.Drawing.SystemIcons.Application;
+        }
+        
         notifyIcon.Text = "Windows Edge Light - Right-click for options";
         notifyIcon.Visible = true;
         

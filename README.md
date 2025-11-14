@@ -26,16 +26,22 @@ The application creates a smooth, glowing border around the edges of your primar
 
 ## Installation
 
-### Prerequisites
+### Option 1: Download Pre-built Executable
+
+Download the latest `WindowsEdgeLight.exe` from the [Releases page](https://github.com/shanselman/WindowsEdgeLight/releases). This is a single-file executable that includes everything you need - no .NET installation required!
+
+### Option 2: Build from Source
+
+#### Prerequisites
 
 - Windows 10 or later
-- .NET 10.0 Runtime (Windows Desktop)
+- .NET 10.0 SDK for building
 
-### Building from Source
+#### Building from Source
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/WindowsEdgeLight.git
+   git clone https://github.com/shanselman/WindowsEdgeLight.git
    cd WindowsEdgeLight
    ```
 
@@ -49,6 +55,18 @@ The application creates a smooth, glowing border around the edges of your primar
    ```bash
    dotnet run
    ```
+
+#### Creating a Single-File Executable
+
+To create a standalone executable:
+```bash
+cd WindowsEdgeLight
+dotnet publish -c Release /p:DebugType=None /p:DebugSymbols=false
+```
+
+The executable will be in `bin\Release\net10.0-windows\win-x64\publish\WindowsEdgeLight.exe`
+
+**Note**: WPF applications cannot use AOT compilation or aggressive trimming. The single-file executable is self-contained and compressed (~72MB) but includes the full .NET runtime.
 
 ## Usage
 
