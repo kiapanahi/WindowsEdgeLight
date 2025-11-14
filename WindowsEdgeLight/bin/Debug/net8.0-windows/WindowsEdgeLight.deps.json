@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "WindowsEdgeLight/1.0.0": {
+        "runtime": {
+          "WindowsEdgeLight.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WindowsEdgeLight/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
