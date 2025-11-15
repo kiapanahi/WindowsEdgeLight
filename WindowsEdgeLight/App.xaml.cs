@@ -14,7 +14,7 @@ public partial class App : System.Windows.Application
     internal static readonly UpdatumManager AppUpdater = new("shanselman", "WindowsEdgeLight")
     {
         // Default pattern (win-x64) will match our ZIP assets
-        // ZIP files contain clean WindowsEdgeLight.exe inside
+        // ZIP files are portable apps with exe and README for proper update handling
         FetchOnlyLatestRelease = true, // Saves GitHub API rate limits
         // Specify the executable name for single-file app (without .exe extension)
         InstallUpdateSingleFileExecutableName = "WindowsEdgeLight",
